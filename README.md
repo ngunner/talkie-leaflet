@@ -1,9 +1,9 @@
 Talkie Leaflet/Mapbox example
 ===========
 
-A simple Leaflet example using Talkie, an open source library by kiln.it.
+A simple Leaflet example using Talkie, an open source library by http://kiln.it.
 
-To see this example live, visit [http://nicholasgunner.com/talkie-leaflet](http://nicholasgunner.com/talkie-leaflet)
+To see this example live, visit http://nicholasgunner.com/talkie-leaflet
 
 Talkie info - http://kiln.it/talkie/
 
