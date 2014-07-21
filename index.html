@@ -36,30 +36,28 @@
       //  pause the soundtrack and prepare to revert changes when
       //  the soundtrack continues.
       function initInteractionHandler(timeline, map) {
-        function mapMoved() {
-          // If this move is triggered by Talkie rather than initiated
-          // by the user, do nothing here.
-          if (timeline.running) return;
+        map.on("movestart", function() {
+          // If this move is initiated by the user, pause the timeline.
+          if (!timeline.running) timeline.pause();
+        });
 
-          // Pause the timeline, record the current map position,
-          // and revert to it when the user presses play again.
-          timeline.pause();
+        function rememberPosition() {
+          // Record the current map position, and revert to it
+          // when the user presses play again.
           var center = map.getCenter(),
               zoom = map.getZoom();
+          console.log("Creating undoInteraction:", center, zoom);
           timeline.undoInteraction(function() {
+            console.log("Running undoInteraction:", center, zoom);
             map.setView(center, zoom);
           });
         }
 
-
-        // We only need to listen for move events when the timeline is
-        // playing. When it isn’t, we’ll get out of the way entirely.
-        timeline.onPlay( function() { map.on ("movestart", mapMoved); });
-        timeline.onPause(function() { map.off("movestart", mapMoved); });
-
-        // Also call mapMoved immediately, so that if the user moves the map before
+        // Remember the position whenever the timeline is paused
+        timeline.onPause(rememberPosition);
+        // Also call rememberPosition immediately, so that if the user moves the map before
         // initially pressing play, we move it back.
-        mapMoved();
+        rememberPosition();
       }
 
       //  Used in the timeline to move the map to a specified position
