@@ -23,8 +23,8 @@
     <!-- Audio to interact with the map -->
     <div id="controls"></div>
     <audio id="soundtrack" controls="controls">
-    <source src="http://orbitist.s3.amazonaws.com/2014/07-talkie-test/Talkie%20Test.ogg" type="audio/ogg">
-    <source src="http://orbitist.s3.amazonaws.com/2014/07-talkie-test/Talkie%20Test.mp3" type="audio/mpeg">
+      <source src="http://orbitist.s3.amazonaws.com/2014/07-talkie-test/leaflet-talkie.ogg" type="audio/ogg">
+      <source src="http://orbitist.s3.amazonaws.com/2014/07-talkie-test/leaflet-talkie.mp3" type="audio/mpeg">
     </audio>
 
     <div id='map'></div>
@@ -38,11 +38,11 @@
       <!-- Talkie timeline config -->
       <script>
         Talkie.timeline("#soundtrack", {
-        "00:13": moveMapTo([40.7298, -74.0027], 13),
-        "00:17": moveMapTo([42.8963, -78.8822], 12),
-        "00:20": moveMapTo([-41.112, -188.767], 6),
-        "00:24": moveMapTo([42.8963, -78.8822], 12),
-        "00:28": moveMapTo([42.44, -79.33], 17)
+        "00:17": moveMapTo([40.7298, -74.0027], 13),
+        "00:22": moveMapTo([42.8963, -78.8822], 12),
+        "00:25": moveMapTo([-41.112, -188.767], 6),
+        "00:28": moveMapTo([42.8963, -78.8822], 12),
+        "00:32": moveMapTo([42.44, -79.33], 17)
       });
       
       function moveMapTo(center, zoom) {
