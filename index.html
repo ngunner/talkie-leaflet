@@ -39,19 +39,14 @@
     <script>
       /* Generic Talkie/Leaflet integration */
 
-      // We’ll set this flag to true during a Talkie-triggered move.
-      // (Talkie could be more helpful and make this information
-      // available directly. I’ll fix that in a future version.)
-      var triggered_move = false;
-
       //  If the user interacts with the map while we’re playing,
       //  pause the soundtrack and prepare to revert changes when
       //  the soundtrack continues.
-      function initInteractionHandler(timeline, soundtrack, map) {
+      function initInteractionHandler(timeline, map) {
         function mapMoved() {
           // If this move is triggered by Talkie rather than initiated
           // by the user, do nothing here.
-          if (timeline.undoing || triggered_move) return;
+          if (timeline.running) return;
 
           // Pause the timeline, record the current map position,
           // and revert to it when the user presses play again.
@@ -66,14 +61,8 @@
 
         // We only need to listen for move events when the timeline is
         // playing. When it isn’t, we’ll get out of the way entirely.
-        timeline.onPlay(function() { map.on("movestart", mapMoved);  });
-
-        // There is no timeline.onPause method, so we have to attach this event
-        // handler directly to the soundtrack element. In fact this is the only
-        // reason we needed to pass the soundtrack element to this function at all.
-        // (I’ll fix this in a future version of Talkie, too.)
-        soundtrack.addEventListener("pause", function() { map.off("move", mapMoved); }, false);
-
+        timeline.onPlay( function() { map.on ("movestart", mapMoved); });
+        timeline.onPause(function() { map.off("movestart", mapMoved); });
 
         // Also call mapMoved immediately, so that if the user moves the map before
         // initially pressing play, we move it back.
@@ -87,9 +76,8 @@
           var prev_center = map.getCenter(),
               prev_zoom = map.getZoom();
 
-          triggered_move = true;
+          // Update the map view
           map.setView(center, zoom);
-          triggered_move = false;
 
           // Revert the view when the user scrubs back
           this.setUndo(function() {
@@ -104,8 +92,7 @@
         .setView([42.44, -79.33], 9);
 
       /* Talkie timeline config */
-      var soundtrack = document.getElementById("soundtrack");
-      var timeline = Talkie.timeline(soundtrack, {
+      var timeline = Talkie.timeline("#soundtrack", {
         "00:13": moveMap(map, [40.7298, -74.0027], 13), // New York city
         "00:17": moveMap(map, [42.8963, -78.8822], 12), // Buffalo
         "00:20": moveMap(map, [-41.112, -188.767], 6),  // New Zealand
@@ -114,7 +101,7 @@
       });
 
       // Kick off the interaction handler
-      initInteractionHandler(timeline, soundtrack, map);
+      initInteractionHandler(timeline, map);
     </script>
   </body>
 </html>
