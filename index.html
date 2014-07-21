@@ -4,16 +4,16 @@
     <meta charset=utf-8 />
     <title>A simple leaflet map with Talkie by Kiln.it</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    
+
     <!-- Mapbox -->
     <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css' rel='stylesheet' />
-    
+
     <!-- Talkie by Kiln.it as well as D3-->
     <link rel="stylesheet" type="text/css" href="http://kiln.it/talkie/ui/1.0/talkie.css">
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="http://kiln.it/talkie-1.min.js"></script>
-    
+
     <style>
        body { margin:0; padding:0; }
        #map { position:absolute; top:30px; bottom:0; width:100%; }
@@ -23,44 +23,44 @@
     <!-- Audio to interact with the map -->
     <div id="controls"></div>
     <audio id="soundtrack" controls="controls">
-    <source src="http://orbitist.s3.amazonaws.com/2014/07-talkie-test/Talkie%20Test.ogg" type="audio/ogg">
-    <source src="http://orbitist.s3.amazonaws.com/2014/07-talkie-test/Talkie%20Test.mp3" type="audio/mpeg">
+      <source src="http://orbitist.s3.amazonaws.com/2014/07-talkie-test/Talkie%20Test.ogg" type="audio/ogg">
+      <source src="http://orbitist.s3.amazonaws.com/2014/07-talkie-test/Talkie%20Test.mp3" type="audio/mpeg">
     </audio>
 
     <div id='map'></div>
-    
-      <!-- Mapbox example map -->
-      <script>
-        var map = L.mapbox.map('map', 'examples.map-i86nkdio')
+
+    <!-- Mapbox example map -->
+    <script>
+      var map = L.mapbox.map('map', 'examples.map-i86nkdio')
         .setView([42.44, -79.33], 9);
-      </script>
-      
-      <!-- Talkie timeline config -->
-      <script>
-        Talkie.timeline("#soundtrack", {
+    </script>
+
+    <!-- Talkie timeline config -->
+    <script>
+      Talkie.timeline("#soundtrack", {
         "00:13": newYorkCity,
         "00:17": buffalo,
         "00:20": newZealand,
         "00:24": buffalo,
         "00:28": fredonia
       });
-      
+
       // Each location defined
-	function newYorkCity() {
+      function newYorkCity() {
         map.setView(new L.LatLng(40.7298, -74.0027), 13);
-    	}
+      }
 
-    	function buffalo() {
+      function buffalo() {
         map.setView(new L.LatLng(42.8963, -78.8822), 12)
-    	}
-    
-	function newZealand() {
-        map.setView(new L.LatLng(-41.112, -188.767), 6);
-    	}
+      }
 
-    	function fredonia() {
+      function newZealand() {
+        map.setView(new L.LatLng(-41.112, -188.767), 6);
+      }
+
+      function fredonia() {
         map.setView(new L.LatLng(42.44, -79.33), 17);
-    	}
-      </script>
+      }
+    </script>
   </body>
 </html>
