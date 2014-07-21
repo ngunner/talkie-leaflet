@@ -10,3 +10,5 @@ To see the minimal example, visit http://nicholasgunner.com/talkie-leaflet/minim
 Talkie info - http://kiln.it/talkie/
 
 Amazing example usage!! - http://www.theguardian.com/world/ng-interactive/2014/aviation-100-years
+
+Music credit: "Sidewalk Chalk" by Broke For Free (http://brokeforfree.com/)
