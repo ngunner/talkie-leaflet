@@ -24,8 +24,8 @@
     <!-- Audio to interact with the map -->
     <div id="controls"></div>
     <audio id="soundtrack" controls="controls">
-      <source src="http://orbitist.s3.amazonaws.com/2014/07-talkie-test/Talkie%20Test.ogg" type="audio/ogg">
-      <source src="http://orbitist.s3.amazonaws.com/2014/07-talkie-test/Talkie%20Test.mp3" type="audio/mpeg">
+      <source src="http://orbitist.s3.amazonaws.com/2014/07-talkie-test/leaflet-talkie.ogg" type="audio/ogg">
+      <source src="http://orbitist.s3.amazonaws.com/2014/07-talkie-test/leaflet-talkie.mp3" type="audio/mpeg">
     </audio>
 
     <div id='map'></div>
@@ -40,11 +40,11 @@
 
       /* Talkie timeline config */
       var timeline = Talkie.timeline("#soundtrack", {
-        "00:13": tl.setView([40.7298, -74.0027], 13), // New York city
-        "00:17": tl.setView([42.8963, -78.8822], 12), // Buffalo
-        "00:20": tl.setView([-41.112, -188.767], 6),  // New Zealand
-        "00:24": tl.setView([42.8963, -78.8822], 12), // Buffalo
-        "00:28": tl.setView([42.44, -79.33], 17)      // Fredonia
+        "00:18": tl.setView([40.7298, -74.0027], 13), // New York city
+        "00:22": tl.setView([42.8963, -78.8822], 12), // Buffalo
+        "00:26": tl.setView([-41.112, -188.767], 6),  // New Zealand
+        "00:29": tl.setView([42.8963, -78.8822], 12), // Buffalo
+        "00:32": tl.setView([42.44, -79.33], 17)      // Fredonia
       });
 
       // Tell TalkieLeaflet that we want to revert user changes to the map view
