@@ -1,4 +1,4 @@
-/* Generic Talkie/Leaflet integration */
+/* Generic Talkie/Leaflet integration. Requires Talkie 1.3 or better. */
 
 (function() {
     // Set the map view, even if a map animation is currently in progress.
