@@ -41,7 +41,7 @@ To see our example live, visit http://nicholasgunner.com/talkie-leaflet
       // user changes will not pause the timeline or be reverted.
        tl.undoViewChanges(timeline);'
 
-## Now go tell amasing stories on maps!
+## Now go tell amazing stories on maps!
 
 Here's an amazing example usage!! - http://www.theguardian.com/world/ng-interactive/2014/aviation-100-years
 
