@@ -9,8 +9,8 @@ To see our example live, visit http://nicholasgunner.com/talkie-leaflet
 
 * Include Leaflet. For this example, we'll use mapbox.js which includes Leaflet
 
-'<script src='mapbox-dist/mapbox.js'></script>
-<link href='mapbox-dist/mapbox.css' rel='stylesheet' />'
+'	<script src='mapbox-dist/mapbox.js'></script>
+	<link href='mapbox-dist/mapbox.css' rel='stylesheet' />'
 
 * Indlude the Talkie library
 
