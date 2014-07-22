@@ -36,6 +36,7 @@ Hook up the Talkie integration to our map and build the actual timeline:
       });
 
 Optional: Tell TalkieLeaflet that we want to revert user changes to the map view If we don’t call this, then the scripted setViews will still work but user changes will not pause the timeline or be reverted.
+
        ``tl.undoViewChanges(timeline);``
 
 ## Now go tell amazing stories on maps!
