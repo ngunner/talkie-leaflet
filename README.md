@@ -5,7 +5,7 @@ A simple Leaflet example using Talkie, an open source library by http://kiln.it.
 
 To see our example live, visit http://nicholasgunner.com/talkie-leaflet
 
-## Usage:
+## Usage
 
 Include Leaflet. For this example, we'll use mapbox.js which includes Leaflet:
 
@@ -20,8 +20,15 @@ Include the Talkie library:
 Include leaflet-talkie:
 
 	<script src="talkie-leaflet.js"></script>
+	
+Add audio player to the body:
 
-Hook up the Talkie integration to our map, build the timeline, and unclude optional functionality:
+    <audio id="soundtrack" controls="controls">
+      <source src="http://orbitist.s3.amazonaws.com/2014/07-talkie-test/leaflet-talkie.ogg" type="audio/ogg">
+      <source src="http://orbitist.s3.amazonaws.com/2014/07-talkie-test/leaflet-talkie.mp3" type="audio/mpeg">
+    </audio>
+
+Initialize Leaflet, hook up TalkieLeaflet, build the timeline, and include optional functionality:
 
     <script>
       /* Initialise Leaflet */
