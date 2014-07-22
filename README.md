@@ -9,22 +9,22 @@ To see our example live, visit http://nicholasgunner.com/talkie-leaflet
 
 * Include Leaflet. For this example, we'll use mapbox.js which includes Leaflet
 
-	`<script src='mapbox-dist/mapbox.js'></script>
-	<link href='mapbox-dist/mapbox.css' rel='stylesheet' />`
+	`<script src='mapbox-dist/mapbox.js'></script>`
+	`<link href='mapbox-dist/mapbox.css' rel='stylesheet' />`
 
 * Include the Talkie library
 
-	`<link rel="stylesheet" type="text/css" href="http://kiln.it/talkie/ui/1.0/talkie.css">
-	<script src="http://kiln.it/talkie-1.3.min.js"></script>`
+	`<link rel="stylesheet" type="text/css" href="http://kiln.it/talkie/ui/1.0/talkie.css">`
+	`<script src="http://kiln.it/talkie-1.3.min.js"></script>`
 
 * Include leaflet-talkie
 
-`<script src="talkie-leaflet.js"></script>`
+	`<script src="talkie-leaflet.js"></script>`
 
 * Build your timeline
 
-`      /* Hook up the Talkie integration to our map */
-      var tl = TalkieLeaflet(map);
+	`/* Hook up the Talkie integration to our map */
+      	var tl = TalkieLeaflet(map);
 
       /* Talkie timeline config. Note: #soundtrack should be replaces with your audio element*/
       var timeline = Talkie.timeline("#soundtrack", {
