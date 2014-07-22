@@ -17,18 +17,18 @@ Include the Talkie library:
 	<link rel="stylesheet" type="text/css" href="http://kiln.it/talkie/ui/1.0/talkie.css">
 	<script src="http://kiln.it/talkie-1.3.min.js"></script>
 
-Include leaflet-talkie:
+Include talkie-leaflet:
 
 	<script src="talkie-leaflet.js"></script>
 	
-Add audio player to the body:
+Add audio player to the body of your page:
 
     <audio id="soundtrack" controls="controls">
       <source src="your-audio.ogg" type="audio/ogg">
       <source src="your-audio.mp3" type="audio/mpeg">
     </audio>
 
-Initialize Leaflet, hook up TalkieLeaflet, build the timeline, and include optional functionality:
+Initialize Leaflet, hook up talkie-leaflet, build the timeline, and include optional functionality:
 
     <script>
       /* Initialise Leaflet */
