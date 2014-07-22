@@ -9,10 +9,8 @@ To see our example live, visit http://nicholasgunner.com/talkie-leaflet
 
 * Include Leaflet. For this example, we'll use mapbox.js which includes Leaflet
 
-	<code>
-	<script src='mapbox-dist/mapbox.js'></script>
-	<link href='mapbox-dist/mapbox.css' rel='stylesheet' />
-	</code>
+	`<script src='mapbox-dist/mapbox.js'></script>
+	<link href='mapbox-dist/mapbox.css' rel='stylesheet' />`
 
 * Include the Talkie library
 
@@ -27,7 +25,7 @@ To see our example live, visit http://nicholasgunner.com/talkie-leaflet
 
 * Build your timeline
 
-'      /* Hook up the Talkie integration to our map */
+`      /* Hook up the Talkie integration to our map */
       var tl = TalkieLeaflet(map);
 
       /* Talkie timeline config. Note: #soundtrack should be replaces with your audio element*/
@@ -43,7 +41,7 @@ To see our example live, visit http://nicholasgunner.com/talkie-leaflet
       //
       // If we don’t call this, then the scripted setViews will still work but
       // user changes will not pause the timeline or be reverted.
-       tl.undoViewChanges(timeline);'
+       tl.undoViewChanges(timeline);`
 
 ## Now go tell amazing stories on maps!
 
