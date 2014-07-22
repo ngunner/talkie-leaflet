@@ -7,24 +7,31 @@ To see our example live, visit http://nicholasgunner.com/talkie-leaflet
 
 ## Usage:
 
-Include Leaflet. For this example, we'll use mapbox.js which includes Leaflet
+Include Leaflet. For this example, we'll use mapbox.js which includes Leaflet:
 
-	``<script src='mapbox-dist/mapbox.js'></script>``
-	``<link href='mapbox-dist/mapbox.css' rel='stylesheet' />``
+	<script src='mapbox-dist/mapbox.js'></script>
+	<link href='mapbox-dist/mapbox.css' rel='stylesheet' />
 
-Include the Talkie library
+Include the Talkie library:
 
-	``<link rel="stylesheet" type="text/css" href="http://kiln.it/talkie/ui/1.0/talkie.css">``
-	``<script src="http://kiln.it/talkie-1.3.min.js"></script>``
+	<link rel="stylesheet" type="text/css" href="http://kiln.it/talkie/ui/1.0/talkie.css">
+	<script src="http://kiln.it/talkie-1.3.min.js"></script>
 
-Include leaflet-talkie
+Include leaflet-talkie:
 
-	``<script src="talkie-leaflet.js"></script>``
+	<script src="talkie-leaflet.js"></script>
 
-Hook up the Talkie integration to our map and build the actual timeline:
-      	``var tl = TalkieLeaflet(map);``
+Hook up the Talkie integration to our map, build the timeline, and unclude optional functionality:
 
-      /* Talkie timeline config. Note: #soundtrack should be replaced with your audio element*/
+    <script>
+      /* Initialise Leaflet */
+      var map = L.mapbox.map("map", "examples.map-i86nkdio")
+        .setView([42.44, -79.33], 9);
+
+      /* Hook up the Talkie integration to our map */
+      var tl = TalkieLeaflet(map);
+
+      /* Talkie timeline config */
       var timeline = Talkie.timeline("#soundtrack", {
         "00:18": tl.setView([40.7298, -74.0027], 13), // New York city
         "00:22": tl.setView([42.8963, -78.8822], 12), // Buffalo
@@ -33,9 +40,12 @@ Hook up the Talkie integration to our map and build the actual timeline:
         "00:32": tl.setView([42.44, -79.33], 17)      // Fredonia
       });
 
-Optional: Tell TalkieLeaflet that we want to revert user changes to the map view If we don’t call this, then the scripted setViews will still work but user changes will not pause the timeline or be reverted.
-
+      // Tell TalkieLeaflet that we want to revert user changes to the map view
+      //
+      // If we don’t call this, then the scripted setViews will still work but
+      // user changes will not pause the timeline or be reverted.
        tl.undoViewChanges(timeline);
+    </script>
 
 ## Now go tell amazing stories on maps!
 
