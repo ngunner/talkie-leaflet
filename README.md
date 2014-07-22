@@ -14,14 +14,12 @@ To see our example live, visit http://nicholasgunner.com/talkie-leaflet
 
 * Include the Talkie library
 
-	<code>
-	<link rel="stylesheet" type="text/css" href="http://kiln.it/talkie/ui/1.0/talkie.css">
-	<script src="http://kiln.it/talkie-1.3.min.js"></script>'
-	</code>
+	`<link rel="stylesheet" type="text/css" href="http://kiln.it/talkie/ui/1.0/talkie.css">
+	<script src="http://kiln.it/talkie-1.3.min.js"></script>`
 
 * Include leaflet-talkie
 
-'<script src="talkie-leaflet.js"></script>'
+`<script src="talkie-leaflet.js"></script>`
 
 * Build your timeline
 
