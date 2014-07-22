@@ -23,10 +23,10 @@ To see our example live, visit http://nicholasgunner.com/talkie-leaflet
 
 * Build your timeline
 
-	`/* Hook up the Talkie integration to our map */
-      	var tl = TalkieLeaflet(map);
+Hook up the Talkie integration to our map:
+      	`var tl = TalkieLeaflet(map);`
 
-      /* Talkie timeline config. Note: #soundtrack should be replaces with your audio element*/
+      /* Talkie timeline config. Note: #soundtrack should be replaced with your audio element*/
       var timeline = Talkie.timeline("#soundtrack", {
         "00:18": tl.setView([40.7298, -74.0027], 13), // New York city
         "00:22": tl.setView([42.8963, -78.8822], 12), // Buffalo
@@ -35,11 +35,8 @@ To see our example live, visit http://nicholasgunner.com/talkie-leaflet
         "00:32": tl.setView([42.44, -79.33], 17)      // Fredonia
       });
 
-      // Tell TalkieLeaflet that we want to revert user changes to the map view
-      //
-      // If we don’t call this, then the scripted setViews will still work but
-      // user changes will not pause the timeline or be reverted.
-       tl.undoViewChanges(timeline);`
+Tell TalkieLeaflet that we want to revert user changes to the map view If we don’t call this, then the scripted setViews will still work but user changes will not pause the timeline or be reverted.
+       `tl.undoViewChanges(timeline);`
 
 ## Now go tell amazing stories on maps!
 
