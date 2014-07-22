@@ -9,13 +9,17 @@ To see our example live, visit http://nicholasgunner.com/talkie-leaflet
 
 * Include Leaflet. For this example, we'll use mapbox.js which includes Leaflet
 
+	<code>
 	<script src='mapbox-dist/mapbox.js'></script>
 	<link href='mapbox-dist/mapbox.css' rel='stylesheet' />
+	</code>
 
-* Indlude the Talkie library
+* Include the Talkie library
 
-'<link rel="stylesheet" type="text/css" href="http://kiln.it/talkie/ui/1.0/talkie.css">
-<script src="http://kiln.it/talkie-1.3.min.js"></script>'
+	<code>
+	<link rel="stylesheet" type="text/css" href="http://kiln.it/talkie/ui/1.0/talkie.css">
+	<script src="http://kiln.it/talkie-1.3.min.js"></script>'
+	</code>
 
 * Include leaflet-talkie
 
