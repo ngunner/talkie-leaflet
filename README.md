@@ -24,8 +24,8 @@ Include leaflet-talkie:
 Add audio player to the body:
 
     <audio id="soundtrack" controls="controls">
-      <source src="http://orbitist.s3.amazonaws.com/2014/07-talkie-test/leaflet-talkie.ogg" type="audio/ogg">
-      <source src="http://orbitist.s3.amazonaws.com/2014/07-talkie-test/leaflet-talkie.mp3" type="audio/mpeg">
+      <source src="your-audio.ogg" type="audio/ogg">
+      <source src="your-audio.mp3" type="audio/mpeg">
     </audio>
 
 Initialize Leaflet, hook up TalkieLeaflet, build the timeline, and include optional functionality:
