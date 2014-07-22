@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="http://kiln.it/talkie/ui/1.0/talkie.css">
     <script src="http://kiln.it/talkie-1.3.min.js"></script>
 
+    <!-- Talkie/Leaflet integration -->
+    <script src="talkie-leaflet.js"></script>
     <style>
        body { margin:0; padding:0; }
        #map { position:absolute; top:30px; bottom:0; width:100%; }
@@ -28,71 +30,28 @@
 
     <div id='map'></div>
 
-    <!-- Mapbox example map -->
     <script>
-      /* Generic Talkie/Leaflet integration */
-
-      //  If the user interacts with the map while we’re playing,
-      //  pause the soundtrack and prepare to revert changes when
-      //  the soundtrack continues.
-      function initInteractionHandler(timeline, map) {
-        map.on("movestart", function() {
-          // If this move is initiated by the user, pause the timeline.
-          if (!timeline.running) timeline.pause();
-        });
-
-        function rememberPosition() {
-          // Record the current map position, and revert to it
-          // when the user presses play again.
-          var center = map.getCenter(),
-              zoom = map.getZoom();
-          console.log("Creating undoInteraction:", center, zoom);
-          timeline.undoInteraction(function() {
-            console.log("Running undoInteraction:", center, zoom);
-            map.setView(center, zoom);
-          });
-        }
-
-        // Remember the position whenever the timeline is paused
-        timeline.onPause(rememberPosition);
-        // Also call rememberPosition immediately, so that if the user moves the map before
-        // initially pressing play, we move it back.
-        rememberPosition();
-      }
-
-      //  Used in the timeline to move the map to a specified position
-      function moveMap(map, center, zoom) {
-        return function() {
-          // Record the current map position
-          var prev_center = map.getCenter(),
-              prev_zoom = map.getZoom();
-
-          // Update the map view
-          map.setView(center, zoom);
-
-          // Revert the view when the user scrubs back
-          this.setUndo(function() {
-            map.setView(prev_center, prev_zoom);
-          });
-        };
-      }
-
-
       /* Initialise Leaflet */
-      var map = L.mapbox.map('map', 'examples.map-i86nkdio')
+      var map = L.mapbox.map("map", "examples.map-i86nkdio")
         .setView([42.44, -79.33], 9);
+
+      /* Hook up the Talkie integration to our map */
+      var tl = TalkieLeaflet(map);
 
       /* Talkie timeline config */
       var timeline = Talkie.timeline("#soundtrack", {
-        "00:13": moveMap(map, [40.7298, -74.0027], 13), // New York city
-        "00:17": moveMap(map, [42.8963, -78.8822], 12), // Buffalo
-        "00:20": moveMap(map, [-41.112, -188.767], 6),  // New Zealand
-        "00:24": moveMap(map, [42.8963, -78.8822], 12), // Buffalo
-        "00:28": moveMap(map, [42.44, -79.33], 17)      // Fredonia
+        "00:13": tl.setView([40.7298, -74.0027], 13), // New York city
+        "00:17": tl.setView([42.8963, -78.8822], 12), // Buffalo
+        "00:20": tl.setView([-41.112, -188.767], 6),  // New Zealand
+        "00:24": tl.setView([42.8963, -78.8822], 12), // Buffalo
+        "00:28": tl.setView([42.44, -79.33], 17)      // Fredonia
       });
 
-      // Kick off the interaction handler
-      initInteractionHandler(timeline, map);
+      // Tell TalkieLeaflet that we want to revert user changes to the map view
+      //
+      // If we don’t call this, then the scripted setViews will still work but
+      // user changes will not pause the timeline or be reverted.
+      tl.undoViewChanges(timeline);
     </script>
   </body>
 </html>
