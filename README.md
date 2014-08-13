@@ -23,6 +23,7 @@ Include talkie-leaflet:
 	
 Add audio player to the body of your page:
 
+    <div id="controls"></div>
     <audio id="soundtrack" controls="controls">
       <source src="your-audio.ogg" type="audio/ogg">
       <source src="your-audio.mp3" type="audio/mpeg">
